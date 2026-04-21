@@ -1,0 +1,11 @@
+pandas
+numpy
+fuzzywuzzy
+python-levenshtein
+scikit-learn
+matplotlib
+seaborn
+jupyter
+soccerdata
+beautifulsoup4
+requests

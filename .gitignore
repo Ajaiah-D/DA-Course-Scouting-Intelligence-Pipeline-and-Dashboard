@@ -1,0 +1,23 @@
+# Claude Code
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/raw/                    # raw Kaggle source files
+data/cleaned/                # intermediate pipeline outputs (derived from Kaggle data)
+data/final/merged.csv        # pipeline intermediate — contains Transfermarkt IDs
+data/final/scored.csv        # pipeline intermediate — contains Transfermarkt IDs
+
+# OS
+.DS_Store
+Thumbs.db
