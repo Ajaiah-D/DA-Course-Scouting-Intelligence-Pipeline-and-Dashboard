@@ -13,10 +13,10 @@ venv/
 .ipynb_checkpoints/
 
 # Data
-data/raw/                    # raw Kaggle source files
-data/cleaned/                # intermediate pipeline outputs (derived from Kaggle data)
-data/final/merged.csv        # pipeline intermediate — contains Transfermarkt IDs
-data/final/scored.csv        # pipeline intermediate — contains Transfermarkt IDs
+data/raw/
+data/cleaned/
+data/final/merged.csv
+data/final/scored.csv
 
 # OS
 .DS_Store
