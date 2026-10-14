@@ -2,6 +2,8 @@ pandas
 numpy
 fuzzywuzzy
 python-levenshtein
+unidecode
+openpyxl
 scikit-learn
 matplotlib
 seaborn

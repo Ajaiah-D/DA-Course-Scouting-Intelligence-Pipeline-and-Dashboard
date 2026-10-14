@@ -24,7 +24,8 @@ FINAL_DIR = Path("data/final")
 
 # ── League strength multipliers ───────────────────────────────────────────────
 # Reward players performing in harder leagues.
-# Scottish Premiership = 1.00 baseline. Bundesliga/Ligue 1 at top.
+# Big 5 only: Premier League highest (1.08), then La Liga, Serie A, Bundesliga;
+# Ligue 1 = 1.00 baseline. Leagues not listed fall back to 1.0 (see .fillna below).
 
 LEAGUE_MULTIPLIERS = {
     "Premier League": 1.08,  # highest overall competitiveness + transfer spend

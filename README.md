@@ -21,7 +21,10 @@ End-to-end Python pipeline that merges FBref performance data with Transfermarkt
 ```
 data/raw/
   transfermarkt/          <- Kaggle dataset (players.csv, player_valuations.csv, etc.)
-  fbref/                  <- FBref Excel exports (standard, shooting, passing, defending)
+data/cleaned/
+  {standard,shooting,passing,defending}_cleaned.xlsx
+                          <- pre-cleaned FBref tables from the scouting-report project
+                             (see "FBref input files" below)
 
          +------------------+     +----------------------+
          |  build_fbref.py  |     | clean_transfermarkt  |
@@ -115,8 +118,11 @@ python export_dashboard.py      # clean export → data/final/dashboard.csv
 ```
 
 **Data sources required (not included in repo):**
-- FBref Big 5 league exports (standard, shooting, passing, defending) as `.xlsx` → `data/cleaned/`
+- FBref Big 5 league tables as `data/cleaned/standard_cleaned.xlsx`, `shooting_cleaned.xlsx`, `passing_cleaned.xlsx`, `defending_cleaned.xlsx` (see below)
 - Transfermarkt Kaggle dataset → `data/raw/transfermarkt/`
+
+**FBref input files:**
+FBref scraping is not part of this repo. The four `*_cleaned.xlsx` files that `build_fbref.py` reads are byte-identical to the cleaned outputs of the collaborative scouting-report project ([github.com/M4G1C14N5/scouting-report](https://github.com/M4G1C14N5/scouting-report), `cleaned_data/`). Copy `standard_cleaned.xlsx`, `shooting_cleaned.xlsx`, `passing_cleaned.xlsx` and `defending_cleaned.xlsx` from that folder into `data/cleaned/` before running the pipeline.
 
 ---
 
@@ -148,6 +154,6 @@ python export_dashboard.py      # clean export → data/final/dashboard.csv
 |---|---|
 | Data processing | Python, pandas, numpy |
 | Name matching | fuzzywuzzy (token_sort_ratio), unidecode |
-| Data sources | FBref (Excel exports), Transfermarkt (Kaggle) |
+| Data sources | FBref (cleaned Excel tables from the scouting-report project), Transfermarkt (Kaggle) |
 | Visualisation | Tableau Public |
 | Version control | Git, GitHub |

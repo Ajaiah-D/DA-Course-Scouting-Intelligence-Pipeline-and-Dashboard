@@ -27,7 +27,10 @@ FUZZY_THRESHOLD = 85  # minimum match score (0-100) to accept a fuzzy match
 # ── Name normalisation ────────────────────────────────────────────────────────
 
 def normalise(name: str) -> str:
-    """Lowercase, strip accents, remove non-alpha chars."""
+    """Transliterate to ASCII (strips accents), lowercase, trim outer whitespace.
+
+    Punctuation, hyphens and inner spaces are kept. Missing values become "".
+    """
     if pd.isna(name):
         return ""
     return unidecode(str(name)).lower().strip()
