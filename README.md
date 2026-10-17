@@ -8,9 +8,9 @@ End-to-end Python pipeline that merges FBref performance data with Transfermarkt
 
 ## What It Does
 
-- Merges four FBref stat tables (standard, shooting, passing, defending) across two seasons (2022-23, 2023-24) on Player / Club / League / Season keys, covering 3,008 player-seasons after filtering
+- Merges four FBref stat tables (standard, shooting, passing, defending) across two seasons (2022-23, 2023-24) on Player / Club / League / Season keys, covering 3,008 outfield player-seasons after filtering out goalkeepers and anyone under 900 minutes
 - Builds per-season Transfermarkt valuation snapshots from raw Kaggle data, taking each player's final recorded valuation within the August–July season window
-- Joins the two datasets via a two-pass name matching strategy — exact first on normalised names, then fuzzy matching scoped within each league and season — achieving a 94.9% match rate (2,854 player-seasons)
+- Joins the two datasets via a two-pass name matching strategy — exact first on normalised names, then fuzzy matching scoped within each league and season — (fuzzy matches accepted at score 85 or higher), achieving a 94.9% match rate (2,854 of 3,008 player-seasons)
 - Scores every outfield player using a composite model: min-max normalisation within position group, position-specific metric weights, league strength multiplier, then divides by market value to produce a value-per-million score
 - Exports a clean 40-column dashboard CSV, stripping pipeline internals and replacing raw counting stats with per-90 equivalents
 
